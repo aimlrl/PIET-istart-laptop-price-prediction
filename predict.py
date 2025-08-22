@@ -43,11 +43,20 @@ x_vec = np.array(x_vec)
 x_vec = x_vec.reshape(1,x_vec.shape[0])
 """
 
-with open("./weights.pkl","rb") as file_handle:
-    ws = pickle.load(file_handle)
+def get_feature_mean_std():
 
-with open("./X_mean_std.pkl","rb") as file_handle:
-    X_mean_std = pickle.load(file_handle)
+    with open("./X_mean_std.pkl","rb") as file_handle:
+        X_mean_std = pickle.load(file_handle)
+
+    return X_mean_std
+
+
+def get_trained_weights():
+
+    with open("./weights.pkl","rb") as file_handle:
+        ws = pickle.load(file_handle)
+
+    return ws
 
 """
 x_vec = (x_vec - X_mean_std[0])/X_mean_std[1]
